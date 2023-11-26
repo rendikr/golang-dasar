@@ -13,6 +13,7 @@ func main() {
 		fmt.Println("We're stranger")
 	}
 
+	// short statement
 	if length := len(name); length > 5 {
 		fmt.Println("Nama terlalu panjang")
 	} else {
