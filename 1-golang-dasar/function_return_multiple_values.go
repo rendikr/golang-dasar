@@ -9,4 +9,8 @@ func getFullName() (string, string) {
 func main() {
 	firstName, lastName := getFullName()
 	fmt.Println(firstName, lastName)
+
+	// ignore the "lastName" returned value
+	myName, _ := getFullName()
+	fmt.Println(myName)
 }
