@@ -27,4 +27,10 @@ func main() {
 
 	peter := Customer{"Peter", "JL. ABC", 22}
 	fmt.Println(peter)
+
+	peter.sayHello("Griffin")
+}
+
+func (customer Customer) sayHello(name string) {
+	fmt.Println("Hello", name, ", my name is", customer.Name)
 }
