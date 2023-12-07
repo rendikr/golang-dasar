@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-type Address struct {
-	City, Province, Country string
-}
-
 func main() {
 	// pass by reference
 	address1 := Address{"Subang", "Jawa Barat", "Indonesia"}
