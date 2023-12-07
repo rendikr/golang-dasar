@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-type Address struct {
-	City, Province, Country string
-}
-
 func main() {
 	// var alamat1 = &Address{} // membuat alamat1 menjadi pointer ke value Address dengan data kosong
 	var alamat1 = new(Address) // membuat alamat1 menjadi pointer ke value Address dengan data kosong. Alternatif dari &Address{}
