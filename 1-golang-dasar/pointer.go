@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-type Address struct {
-	City, Province, Country string
-}
-
 func main() {
 	// pass by value
 	address1 := Address{"Subang", "Jawa Barat", "Indonesia"}
@@ -16,7 +12,7 @@ func main() {
 	fmt.Println(address2) // city berubah menjadi Bandung
 
 	// pass by reference
-	address3 := Address{"Subang", "Jawa Barata", "Indonesia"}
+	address3 := Address{"Subang", "Jawa Barat", "Indonesia"}
 	address4 := &address3 // reference
 
 	address4.City = "Bandung"
