@@ -2,3 +2,5 @@ github.com/rendikr/go-say-hello v1.0.0 h1:bLkpHMa/evyX5g1rZzNsFnXar8732M+u+aIWaN
 github.com/rendikr/go-say-hello v1.0.0/go.mod h1:NBsPumsuINhM3gSe2vrqHEMZsipoGi81wO0dRflLFG0=
 github.com/rendikr/go-say-hello v1.5.0 h1:rE0+9AIvLLkixLR0ndVW6PrTNe+b6z2Nj9dlYxaqsLk=
 github.com/rendikr/go-say-hello v1.5.0/go.mod h1:NBsPumsuINhM3gSe2vrqHEMZsipoGi81wO0dRflLFG0=
+github.com/rendikr/go-say-hello/v2 v2.0.0 h1:Le/+DHUxElL1p5cs1WMGpaxsbFoGB5IE9PBX4Hf/ubM=
+github.com/rendikr/go-say-hello/v2 v2.0.0/go.mod h1:Tl79aJLbmQNWgUspa7Xtc7ZPdLFIWFElnE1GBSimI7Y=
