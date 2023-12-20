@@ -68,3 +68,34 @@ func TestSubTest(t *testing.T) {
 	})
 	fmt.Println(">>> [TestSubTest] Finished...")
 }
+
+func TestTableTest(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  string
+		expected string
+	}{
+		{
+			name:     "HelloWorld(John)",
+			request:  "John",
+			expected: "Hello John",
+		},
+		{
+			name:     "HelloWorld(Jane)",
+			request:  "Jane",
+			expected: "Hello Jane",
+		},
+		{
+			name:     "HelloWorld(Peter)",
+			request:  "Peter",
+			expected: "Hello Peter",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWorld(test.request)
+			require.Equal(t, test.expected, result)
+		})
+	}
+}
