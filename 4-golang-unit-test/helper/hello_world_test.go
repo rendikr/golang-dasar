@@ -45,3 +45,13 @@ func TestSkip(t *testing.T) {
 	result := HelloWorld("John")
 	require.Equal(t, "Hello John", result, "Result should be Hello John") // will call t.FailNow() on test fail
 }
+
+func TestMain(m *testing.M) {
+	// before running unit test
+	fmt.Println("Before Unit Test")
+
+	m.Run() // execute all unit test
+
+	// after running unit test
+	fmt.Println("After Unit Test")
+}
