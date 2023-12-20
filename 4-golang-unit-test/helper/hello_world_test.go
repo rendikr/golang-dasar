@@ -55,3 +55,16 @@ func TestMain(m *testing.M) {
 	// after running unit test
 	fmt.Println("After Unit Test")
 }
+
+func TestSubTest(t *testing.T) {
+	fmt.Println(">>> [TestSubTest] Started...")
+	t.Run("John", func(t *testing.T) {
+		result := HelloWorld("John")
+		require.Equal(t, "Hello John", result, "Result should be Hello John")
+	})
+	t.Run("Jane", func(t *testing.T) {
+		result := HelloWorld("Jane")
+		require.Equal(t, "Hello Jane", result, "Result should be Hello Jane")
+	})
+	fmt.Println(">>> [TestSubTest] Finished...")
+}
