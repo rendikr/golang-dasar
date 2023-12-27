@@ -2,6 +2,7 @@ package golang_goroutines
 
 import (
 	"fmt"
+	"strconv"
 	"testing"
 	"time"
 )
@@ -70,5 +71,22 @@ func TestBufferedChannel(t *testing.T) {
 	fmt.Println(<-channel)
 	fmt.Println(<-channel)
 	fmt.Println(<-channel)
+	fmt.Println("Finished!")
+}
+
+func TestRangeChannel(t *testing.T) {
+	channel := make(chan string)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			channel <- "Looping number " + strconv.Itoa(i)
+		}
+		close(channel)
+	}()
+
+	for data := range channel {
+		fmt.Println("Receiving data", data)
+	}
+
 	fmt.Println("Finished!")
 }
