@@ -1,3 +1,3 @@
-module 5-golang-goroutines
+module golang_goroutines
 
 go 1.21.5
