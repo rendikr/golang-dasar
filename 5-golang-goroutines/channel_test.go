@@ -109,6 +109,8 @@ func TestSelectChannel(t *testing.T) {
 		case data := <-channel2:
 			fmt.Println("Channel 2 Data:", data)
 			counter++
+		default:
+			fmt.Println("Awaiting data...")
 		}
 
 		if counter == 2 {
