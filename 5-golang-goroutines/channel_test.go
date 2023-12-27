@@ -58,3 +58,17 @@ func TestInOutChannel(t *testing.T) {
 
 	time.Sleep(5 * time.Second)
 }
+
+func TestBufferedChannel(t *testing.T) {
+	channel := make(chan string, 3) // create buffered channel with "3" as the capacity. this means the channel only able to be sent data 3 times
+	defer close(channel)
+
+	channel <- "John"
+	channel <- "Jane"
+	channel <- "Peter"
+
+	fmt.Println(<-channel)
+	fmt.Println(<-channel)
+	fmt.Println(<-channel)
+	fmt.Println("Finished!")
+}
