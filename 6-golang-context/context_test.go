@@ -3,7 +3,9 @@ package golang_context
 import (
 	"context"
 	"fmt"
+	"runtime"
 	"testing"
+	"time"
 )
 
 func TestContext(t *testing.T) {
@@ -36,4 +38,48 @@ func TestContextWithValue(t *testing.T) {
 	fmt.Println(contextF.Value("f")) // returns value
 	fmt.Println(contextF.Value("c")) // returns value because context F (with value "f") is a child of context C (with value "c")
 	fmt.Println(contextF.Value("b")) // doesn't returns value because context F and any of it's parents, doesn't have any context that has "b" value
+}
+
+func CreateCounter(ctx context.Context) chan int {
+	destination := make(chan int)
+
+	go func() {
+		defer close(destination)
+		counter := 1
+
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			default:
+				destination <- counter
+				counter++
+			}
+		}
+	}()
+
+	return destination
+}
+
+func TestContextWithCancel(t *testing.T) {
+	fmt.Println("Total Goroutine:", runtime.NumGoroutine())
+
+	parent := context.Background()
+	ctx, cancel := context.WithCancel(parent)
+
+	destination := CreateCounter(ctx)
+	fmt.Println("Total Goroutine:", runtime.NumGoroutine())
+
+	for n := range destination {
+		fmt.Println("Counter:", n)
+		if n == 10 {
+			break
+		}
+	}
+
+	cancel() // sending cancel signal to context. without cancel signal, the goroutine will never stop, thus creating a goroutine leak
+
+	time.Sleep(2 * time.Second)
+
+	fmt.Println("Total Goroutine:", runtime.NumGoroutine())
 }
